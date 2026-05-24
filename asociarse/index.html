@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo asociarse con Rudy Laddaga</title>
+<style>
+:root{
+  --ink:#13100f;
+  --paper:#f5efe6;
+  --warm:#eadcc8;
+  --line:rgba(19,16,15,0.1);
+  --gold:#b68b49;
+  --rust:#9f4a2d;
+  --forest:#305648;
+  --wine:#5b2629;
+  --muted:#685f59;
+  --white:#fffdf9;
+  --shadow:0 24px 70px rgba(16,12,10,0.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Georgia,"Times New Roman",serif;
+  background:
+    radial-gradient(circle at top left, rgba(182,139,73,0.12), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0)),
+    var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+a{color:inherit}
+#prog{
+  position:fixed;top:0;left:0;height:3px;width:0;z-index:300;
+  background:linear-gradient(90deg,var(--rust),var(--gold));
+}
+.topbar{
+  position:sticky;top:0;z-index:220;
+  background:rgba(19,16,15,0.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.topbar-inner{
+  max-width:1440px;margin:0 auto;padding:16px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:22px;
+}
+.brand{display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+.brand-kicker,.brand-sub,.nav-label,.eyebrow,.mini,.section-kicker,.tag,.step-n,.value-n,.signal-n{
+  font-family:"Courier New",monospace;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+}
+.brand-kicker{font-size:10px;color:var(--gold)}
+.brand-sub{font-size:10px;color:rgba(255,255,255,0.55)}
+.nav{
+  display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  text-decoration:none;
+  display:flex;align-items:center;gap:10px;
+  padding:11px 16px;border-radius:999px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.05);
+  transition:.25s ease;
+}
+.nav a:hover,.nav a.on{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,0.13);
+  border-color:rgba(182,139,73,0.35);
+}
+.nav-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(255,255,255,0.28);flex-shrink:0;
+}
+.nav a.on .nav-dot{background:var(--gold)}
+.nav-label{font-size:11px;color:var(--white);white-space:nowrap}
+.hero{
+  position:relative;
+  padding:28px 24px 24px;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    linear-gradient(119deg, #100d0c 0%, #100d0c 46%, #efe2d1 46%, #f7f0e7 100%);
+}
+.hero-shell{
+  position:relative;z-index:2;
+  max-width:1440px;margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr);
+  gap:18px;min-height:calc(100vh - 120px);
+}
+.hero-copy{
+  background:rgba(15,12,11,0.93);
+  color:var(--white);
+  padding:72px clamp(26px,4vw,62px) 60px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.hero-copy::before{
+  content:"SOCIOS";
+  position:absolute;right:-12px;top:22px;
+  font-size:clamp(82px,15vw,210px);
+  line-height:.84;letter-spacing:-.08em;
+  color:rgba(255,255,255,0.05);
+}
+.eyebrow{font-size:10px;color:var(--gold);margin-bottom:22px}
+.hero-title{
+  font-size:clamp(58px,7vw,120px);
+  line-height:.9;
+  letter-spacing:-.05em;
+  font-weight:400;
+  max-width:8ch;
+  margin-bottom:18px;
+}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-quote{
+  font-size:clamp(24px,2.8vw,38px);
+  line-height:1.04;
+  max-width:11ch;
+  color:rgba(255,253,249,0.95);
+  margin-bottom:26px;
+}
+.hero-rule{
+  width:138px;height:3px;margin:0 0 24px;
+  background:linear-gradient(90deg,var(--rust),var(--gold),transparent);
+}
+.hero-desc{
+  max-width:38ch;
+  color:rgba(255,253,249,0.72);
+  font-size:17px;
+  border-left:2px solid rgba(182,139,73,0.7);
+  padding-left:18px;
+}
+.hero-actions{
+  margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;
+}
+.btn{
+  text-decoration:none;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:46px;padding:0 18px;border-radius:999px;
+  border:1px solid rgba(255,255,255,0.12);
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+.btn-primary{background:var(--gold);color:#181412;border-color:transparent}
+.btn-secondary{background:rgba(255,255,255,0.04);color:var(--white)}
+.btn:hover{transform:translateY(-1px)}
+.hero-panel{
+  display:grid;
+  grid-template-rows:minmax(0,1fr) auto;
+  gap:18px;
+}
+.hero-lede{
+  background:linear-gradient(180deg, rgba(182,139,73,0.1), rgba(182,139,73,0.02)), #181312;
+  color:var(--white);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:34px 30px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-lede::before{
+  content:"";
+  position:absolute;inset:18px;
+  border:1px solid rgba(255,255,255,0.08);
+  pointer-events:none;
+}
+.hero-lede-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:rgba(255,255,255,0.08);
+}
+.hero-lede-card{
+  background:rgba(255,255,255,0.03);
+  padding:26px 22px;min-height:180px;
+}
+.mini{font-size:9px;color:var(--gold);margin-bottom:12px}
+.hero-lede-title{
+  font-size:20px;line-height:1.22;margin-bottom:10px;
+}
+.hero-lede-text{
+  font-size:14px;color:rgba(255,255,255,0.7);
+}
+.hero-statline{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);
+}
+.stat{
+  background:var(--white);padding:24px 22px;min-height:132px;
+}
+.stat-num{
+  font-size:42px;line-height:.95;color:var(--rust);margin-bottom:8px;
+}
+.stat-label{font-size:11px;color:var(--muted);margin-bottom:8px}
+.stat-copy{font-size:14px;color:var(--ink)}
+section{
+  padding:92px 108px;
+  border-top:1px solid var(--line);
+}
+.section-dark{background:var(--ink);color:var(--white);border-top:none}
+.section-warm{background:#efe5d7}
+.section-kicker{
+  display:block;font-size:10px;color:var(--gold);margin-bottom:16px;
+}
+.section-title{
+  font-size:clamp(34px,4.1vw,60px);
+  line-height:1.02;letter-spacing:-.03em;font-weight:400;
+  margin-bottom:22px;
+}
+.section-title em{font-style:italic;color:var(--rust)}
+.section-intro{
+  max-width:58ch;font-size:17px;color:var(--muted);margin-bottom:48px;
+}
+.section-dark .section-intro{color:rgba(255,255,255,0.64)}
+.story-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start;
+}
+.story-panel{
+  background:var(--white);padding:38px 40px;box-shadow:var(--shadow);
+}
+.section-dark .story-panel{
+  background:rgba(255,255,255,0.04);
+  box-shadow:none;border:1px solid rgba(255,255,255,0.08);
+}
+.story-panel p + p{margin-top:18px}
+.story-panel p{font-size:16px;line-height:1.9}
+.callout{
+  background:linear-gradient(180deg, rgba(182,139,73,0.08), transparent), var(--warm);
+  padding:36px 34px;border-left:3px solid var(--gold);
+}
+.callout p{font-size:18px;line-height:1.75}
+.values{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--line);
+}
+.value{
+  background:var(--white);padding:34px 28px;min-height:340px;
+}
+.value-n{font-size:10px;color:var(--gold);margin-bottom:12px}
+.value h3{font-size:22px;line-height:1.2;margin-bottom:14px}
+.value p{font-size:14px;color:var(--muted)}
+.value strong{color:var(--ink)}
+.principle{
+  margin-top:2px;
+  background:linear-gradient(135deg,var(--ink),#231b18);
+  color:var(--white);
+  padding:44px 48px;
+}
+.principle p{max-width:62ch;font-size:20px;line-height:1.7}
+.principle p strong{color:var(--gold)}
+.modes{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);
+}
+.mode{padding:34px 28px;min-height:220px;background:var(--white)}
+.mode-ico{
+  font-size:28px;
+  line-height:1;
+  margin-bottom:16px;
+  display:block;
+}
+.mode h3{font-size:24px;margin-bottom:12px}
+.mode p{font-size:15px;color:var(--muted)}
+.checklist{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;
+}
+.list-panel{
+  background:var(--white);padding:36px 38px;color:var(--ink);
+}
+.list-panel.negative{background:#fbf2ef}
+.list-panel.pause{background:#f7f0e4}
+.list-panel h3{
+  font-size:28px;line-height:1.15;margin-bottom:20px;
+}
+.list-panel p{color:var(--muted)}
+.list{display:flex;flex-direction:column;gap:16px}
+.list-item{
+  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+}
+.tag{
+  font-size:9px;padding:6px 8px;border-radius:999px;
+  background:var(--warm);color:var(--rust);
+}
+.negative .tag{background:#f0ddda;color:var(--wine)}
+.list-item p{font-size:15px;color:var(--muted)}
+.signals{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--line);
+}
+.signal{background:var(--white);padding:28px 24px;min-height:260px}
+.signal-n{font-size:10px;color:var(--rust);margin-bottom:14px}
+.signal h3{font-size:22px;line-height:1.16;margin-bottom:12px}
+.signal p{font-size:14px;color:var(--muted)}
+.process{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:rgba(255,255,255,0.08);
+}
+.step{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.03);
+  padding:32px 24px;min-height:240px;
+}
+.step-n{font-size:10px;color:var(--gold);margin-bottom:14px}
+.step h3{font-size:20px;line-height:1.22;margin-bottom:10px}
+.step p{font-size:14px;color:rgba(255,255,255,0.68)}
+.cta{
+  text-align:center;background:var(--ink);color:var(--white);border-top:none;
+  padding:110px 72px;
+}
+.cta .section-kicker{margin-bottom:18px}
+.cta-title{
+  font-size:clamp(32px,4vw,54px);line-height:1.05;max-width:12ch;
+  margin:0 auto 24px;
+}
+.cta-copy{
+  max-width:54ch;margin:0 auto 34px;color:rgba(255,255,255,0.68);font-size:17px;
+}
+.cta-grid{
+  max-width:980px;margin:0 auto 40px;
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,0.08);
+}
+.cta-card{background:rgba(255,255,255,0.04);padding:28px 26px;text-align:left}
+.cta-card h3{font-size:20px;margin-bottom:10px}
+.cta-card p{font-size:15px;color:rgba(255,255,255,0.66)}
+.signature{
+  margin-top:38px;color:rgba(182,139,73,0.7);font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;font-family:"Courier New",monospace;
+}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--gold);outline-offset:3px;
+}
+@media (max-width:1260px){
+  .hero-shell,.story-grid,.checklist{grid-template-columns:1fr}
+  .hero-panel{grid-template-rows:auto}
+  .values,.signals,.process{grid-template-columns:1fr 1fr}
+  .modes{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .topbar-inner{padding:14px 18px;flex-direction:column;align-items:flex-start}
+  .hero{padding:14px 14px 18px}
+  .hero-copy{padding:38px 22px 30px}
+  .hero-title{max-width:none}
+  .hero-quote,.hero-desc{max-width:none}
+  .hero-lede-grid,.hero-statline,.values,.modes,.signals,.process,.cta-grid{grid-template-columns:1fr}
+  section,.cta{padding:68px 22px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-kicker">Cómo asociarse con Rudy</span>
+      <span class="brand-sub">Guía para decidir si vale la pena compartir destino</span>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="#hero" data-s="hero" class="on"><span class="nav-dot"></span><span class="nav-label">Inicio</span></a>
+      <a href="#valores" data-s="valores"><span class="nav-dot"></span><span class="nav-label">Valores</span></a>
+      <a href="#formas" data-s="formas"><span class="nav-dot"></span><span class="nav-label">Formas</span></a>
+      <a href="#entrar" data-s="entrar"><span class="nav-dot"></span><span class="nav-label">Cuándo sí</span></a>
+      <a href="#no-entrar" data-s="no-entrar"><span class="nav-dot"></span><span class="nav-label">Cuándo no</span></a>
+      <a href="#proceso" data-s="proceso"><span class="nav-dot"></span><span class="nav-label">Proceso</span></a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero" id="hero">
+  <div class="hero-shell">
+    <div class="hero-copy">
+      <div class="eyebrow">Documento previo a sociedad · borrador web</div>
+      <h1 class="hero-title">Cómo <em>asociarse</em> con Rudy Laddaga</h1>
+      <div class="hero-quote">Asociarse bien cambia una vida. Asociarse mal también.</div>
+      <div class="hero-rule"></div>
+      <p class="hero-desc">Esta guía existe para que tengamos las conversaciones correctas antes de firmar. Si cuadra, arrancamos con claridad. Si no cuadra, nos ahorramos meses, abogados y desgaste humano.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#formas">Empezar por aquí</a>
+        <a class="btn btn-secondary" href="#cta">Si después de esto aún te interesa</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-lede">
+        <div class="hero-lede-grid">
+          <div class="hero-lede-card">
+            <div class="mini">Por qué existe</div>
+            <div class="hero-lede-title">Porque demasiadas empresas no se rompen por mercado: se rompen por socios.</div>
+            <div class="hero-lede-text">No es un problema técnico. Es el problema humano más viejo que existe, y el más caro cuando se ignora.</div>
+          </div>
+          <div class="hero-lede-card">
+            <div class="mini">La tesis</div>
+            <div class="hero-lede-title">La mayoría de esos choques no se arreglan después: se previenen antes.</div>
+            <div class="hero-lede-text">Con cabeza fría, conversaciones incómodas y una arquitectura de relación compatible desde el principio.</div>
+          </div>
+          <div class="hero-lede-card">
+            <div class="mini">Lo que no haré</div>
+            <div class="hero-lede-title">No corro al altar sin noviazgo operativo.</div>
+            <div class="hero-lede-text">No firmo una sociedad sin haber visto a la otra persona bajo presión real y con fricción real.</div>
+          </div>
+          <div class="hero-lede-card">
+            <div class="mini">Resultado esperado</div>
+            <div class="hero-lede-title">O nos emocionamos más, o nos ahorramos un divorcio caro.</div>
+            <div class="hero-lede-text">Las dos opciones son mejores que una boda apresurada seguida de resentimiento y abogados.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-statline">
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Años de sociedad activa</div>
+          <div class="stat-copy">Más de una década siendo socio con Anuar en Gnius Club, con desacuerdos reales y sin amenazas.</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">72h</div>
+          <div class="stat-label">Pausa obligatoria</div>
+          <div class="stat-copy">Cuando aparece una señal roja, paro tres días y reevalúo con cabeza fría y ojos externos.</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4</div>
+          <div class="stat-label">Formas de construir</div>
+          <div class="stat-copy">Sociedad no es el punto de partida automático. A veces una alianza, un proyecto o una asesoría sirven mejor.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="porque">
+  <span class="section-kicker">01 — Por qué existe</span>
+  <h2 class="section-title">Esta conversación tenía que estar <em>por escrito</em></h2>
+  <p class="section-intro">Hay muchas razones por las que una startup fracasa. Mercado, dinero, producto, timing. Todas duelen. Pero hay una causa que aparece con una consistencia que asusta: los socios se pelean. Este sitio existe para hablar de eso antes de firmar.</p>
+  <div class="story-grid">
+    <div class="story-panel reveal">
+      <p>Lo interesante del asunto es que casi siempre se pudo haber prevenido. No arreglado a medias en una junta de emergencia con abogado de por medio, sino <strong>prevenido</strong> con las conversaciones correctas antes de compartir acciones, nómina y destino.</p>
+      <p>Para mí, una sociedad se parece más a un matrimonio que a una transacción. Y justo por eso no tendría sentido correr al altar sin conocernos. Existen los novios. Existe el noviazgo. Existen los procesos pensados para saber con quién vas a amanecer.</p>
+      <p>Si me lees y decides que no cuadra, hermoso: nos ahorramos meses y respeto mutuo. Si me lees y te emocionas más, también hermoso: arrancamos con claridad desde el día uno.</p>
+    </div>
+    <div class="callout reveal d1">
+      <p><strong>No busco convencerte de asociarte conmigo.</strong> Busco que los dos tengamos mejor información para decidir si vale la pena compartir destino empresarial o si conviene construir juntos de otra manera.</p>
+    </div>
+  </div>
+</section>
+
+<section id="valores" class="section-warm">
+  <span class="section-kicker">02 — Los cinco valores que no negocio</span>
+  <h2 class="section-title">Si esto se toca, el negocio completo pierde <em>sentido</em></h2>
+  <p class="section-intro">No son un decálogo corporativo. Son las cinco cosas que si se rompen, rompen el proyecto para mí. Las vas a ver operar en decisiones grandes y chicas.</p>
+  <div class="values">
+    <article class="value reveal">
+      <div class="value-n">01</div>
+      <h3>Honestidad</h3>
+      <p>No como norma externa, sino como congruencia interna. Si lo que pienso, digo y hago no coincide, no vivo en paz. <strong>No es performance. Es necesidad de paz interior.</strong></p>
+    </article>
+    <article class="value reveal d1">
+      <div class="value-n">02</div>
+      <h3>Respeto</h3>
+      <p>Reconozco que cada persona tiene razones profundas para ser como es. Pero el respeto empieza por respetarme a mí y por ejercer límites claros cuando algo viola lo esencial.</p>
+    </article>
+    <article class="value reveal d2">
+      <div class="value-n">03</div>
+      <h3>Libertad</h3>
+      <p>No como ausencia de responsabilidad, sino como condición de todo lo demás. No construyo una máquina que me esclavice, aunque facture millones.</p>
+    </article>
+    <article class="value reveal d3">
+      <div class="value-n">04</div>
+      <h3>Creatividad</h3>
+      <p>Es mi lenguaje nativo. Mi zona de genio está en Fase 1 y 2: síntesis, dirección y visión. <strong>Si me conviertes en ejecutor puro, me apagas.</strong></p>
+    </article>
+    <article class="value reveal d4">
+      <div class="value-n">05</div>
+      <h3>Amor activo</h3>
+      <p>Generoso y alegre, sí. Pero práctico y formativo. El amor que enseña a pescar, no el que solo reparte pescado. <strong>Si vas a construir conmigo, espero lo mismo de tu lado: que construyas con la gente, no que la uses. Que midas el éxito de una empresa también por cómo se sienten saliendo las personas que trabajaron ahí, no solo por la cifra final.</strong></p>
+    </article>
+  </div>
+  <div class="principle reveal">
+    <p><strong>“Con creatividad, amor, compromiso y respeto por ti y por los demás, se puede vivir en plenitud cada minuto de tu vida.”</strong> No es una frase bonita para una taza. Es la forma más corta que tengo de resumir cómo quiero vivir y cómo me interesa construir.</p>
+  </div>
+</section>
+
+<section id="formas">
+  <span class="section-kicker">03 — Primero lo primero</span>
+  <h2 class="section-title">Asociarnos no es la única forma de <em>trabajar juntos</em></h2>
+  <p class="section-intro">Este es el paso que más gente se salta, y donde más tiempo y dinero se pierde. Antes de proponerme una sociedad, vale la pena preguntarse si lo que quieres no cabe mejor en una estructura más ligera.</p>
+  <div class="modes">
+    <article class="mode reveal">
+      <span class="mode-ico">🤝</span>
+      <h3>Alianza comercial</h3>
+      <p>Tú vendes lo tuyo, yo vendo lo mío, colaboramos en puntos específicos y repartimos lo que corresponda. Limpio, claro y sin cónyuge.</p>
+    </article>
+    <article class="mode reveal d1">
+      <span class="mode-ico">🧩</span>
+      <h3>Joint venture por proyecto</h3>
+      <p>Un proyecto con inicio y salida. Armamos algo, lo cobramos, lo cerramos. Si funciona, hacemos otro y construimos historial antes de firmar nada más pesado.</p>
+    </article>
+    <article class="mode reveal d2">
+      <span class="mode-ico">🎓</span>
+      <h3>Consultoría / asesoría</h3>
+      <p>Yo comparto lo que sé, tú decides qué hacer con eso, nos pagamos bien por el tiempo y cada uno sigue con su vida y su estructura.</p>
+    </article>
+    <article class="mode reveal d3">
+      <span class="mode-ico">💍</span>
+      <h3>Sociedad</h3>
+      <p>Firmamos, compartimos acciones y compartimos destino. Si la empresa llora, los dos lloramos. <strong>Esta es la que exige todo lo demás que lees aquí.</strong></p>
+    </article>
+  </div>
+</section>
+
+<section id="entrar" class="section-dark">
+  <span class="section-kicker">04 — Lo que me hace entrar</span>
+  <h2 class="section-title">No busco una copia. Busco una <em>arquitectura de relación</em></h2>
+  <p class="section-intro">Llevo más de diez años siendo socio con Anuar en Gnius Club. Hemos tenido desacuerdos gordos. Nunca nos hemos amenazado. Siempre hemos encontrado salida. No busco clones de esa historia, pero sí la misma arquitectura.</p>
+  <div class="checklist">
+    <div class="list-panel reveal">
+      <h3>Lo que sí tiene que existir</h3>
+      <div class="list">
+        <div class="list-item">
+          <span class="tag">Complemento</span>
+          <p><strong>Expertise complementario, no sobrepuesto.</strong> Donde uno es experto, el otro entrega las llaves. Si ambos quieren manejar el mismo volante, va a haber choque.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Presión</span>
+          <p><strong>Confianza verificada bajo presión.</strong> No bajo éxito. Quiero haber visto cómo reaccionas cuando algo se traba, cuando llega una mala noticia o cuando se tensan las decisiones.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Valores</span>
+          <p><strong>Valores compatibles.</strong> No idénticos, pero sí compatibles con los míos y lo bastante claros como para saber cómo operan cuando se activan.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Debate</span>
+          <p><strong>Capacidad de debatir y no discutir.</strong> En mi negocio nadie discute. Debatimos con calma, datos, expertise y disposición a cambiar de opinión.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Papel</span>
+          <p><strong>Un contrato que refleje lo que acordamos en voz.</strong> En voz hay intención. En papel hay acuerdo. Los dos importan, pero tienen que coincidir.</p>
+        </div>
+      </div>
+    </div>
+    <div class="list-panel pause reveal d1">
+      <h3>La idea central</h3>
+      <div class="list">
+        <div class="list-item">
+          <span class="tag">Síntesis</span>
+          <p>Yo sé de visión, producto y construcción sin capital. Un buen socio para mí es alguien espectacular en lo que a mí no se me da, o capaz de atraer a quien lo haga con excelencia.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Autoridad</span>
+          <p>En una sociedad bien hecha, la autoridad no viene del título ni de quién metió más dinero. Viene del dominio específico del problema que estamos resolviendo.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Resultado</span>
+          <p>Un socio que discute sin datos me cansa. Un socio que debate con expertise me hace crecer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="no-entrar">
+  <span class="section-kicker">05 — Lo que me hace no entrar</span>
+  <h2 class="section-title">Hay señales que para mí no son “detalle”: son <em>diagnóstico</em></h2>
+  <p class="section-intro">No necesito muchas. Me basta con ver el patrón temprano. Si aparece cualquiera de estas condiciones, para mí la sociedad deja de ser una opción lógica.</p>
+  <div class="checklist">
+    <div class="list-panel negative reveal">
+      <h3>Lo que corta el proceso</h3>
+      <div class="list">
+        <div class="list-item">
+          <span class="tag">Historial</span>
+          <p><strong>No te conozco lo suficiente.</strong> Si no te he visto operar bajo presión en algo real, no me asocio contigo. Podemos hacer algo comercial antes, pero nunca al revés.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Paquete</span>
+          <p><strong>Vienes con alguien más que yo no conozco.</strong> Si tu condición para entrar es sumar a un tercero con quien no he operado, gracias, no.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Amenaza</span>
+          <p><strong>Hay una amenaza sobre la mesa.</strong> Aunque venga disfrazada de broma o presión “justificada”, para mí ya es información sobre cómo va a ser la sociedad bajo problema real.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Cesiones</span>
+          <p><strong>Me piden mucho y ceden poco.</strong> Si la balanza ya nace torcida en negociación, el tiempo no la endereza: la amplifica.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Salida</span>
+          <p><strong>No quieres hablar de separación.</strong> Toda sociedad adulta también piensa cómo se separa si la vida cambia. Si eso incomoda demasiado, mal vamos.</p>
+        </div>
+        <div class="list-item">
+          <span class="tag">Urgencia</span>
+          <p><strong>La urgencia se usa como argumento de cierre.</strong> Si necesito decidir antes del viernes para no “perder la oportunidad”, entonces la oportunidad no era para mí.</p>
+        </div>
+      </div>
+    </div>
+    <div class="list-panel pause reveal d1">
+      <h3>Las cinco señales que me hacen pausar sí o sí</h3>
+      <p style="font-size:16px;color:var(--muted);margin-bottom:22px">Estas las escribo en frío porque, en el fuego, ya no sirven. Si aparece cualquiera, paro 72 horas y reevalúo con un segundo par de ojos externos al deal.</p>
+      <div class="signals">
+        <article class="signal">
+          <div class="signal-n">01</div>
+          <h3>Una sola muestra de irrespeto</h3>
+          <p>No dos, no tres. Una. El primer tropezón suele predecir la serie.</p>
+        </article>
+        <article class="signal">
+          <div class="signal-n">02</div>
+          <h3>Rechazo de una solución que los beneficia</h3>
+          <p>Si ofrezco justo lo que pidieron y aun así dicen que no, ya no veo desacuerdo intelectual: veo rigidez.</p>
+        </article>
+        <article class="signal">
+          <div class="signal-n">03</div>
+          <h3>Movimiento de portería</h3>
+          <p>Lo que ya se acordó no se reabre encubiertamente. Una vez puede ser ajuste. Dos veces es método.</p>
+        </article>
+        <article class="signal">
+          <div class="signal-n">04</div>
+          <h3>Desbalance persistente en concesiones</h3>
+          <p>Si tras varias sesiones yo cedo casi todo y la otra parte casi nada, eso no mejora después de firmar.</p>
+        </article>
+        <article class="signal">
+          <div class="signal-n">05</div>
+          <h3>Tengo que venderte a mi propio lado</h3>
+          <p>Si necesito convencer a mi equipo, a mi gente o a mí mismo, algo ya está mal. Las sociedades sanas no requieren propaganda interna.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proceso" class="section-dark">
+  <span class="section-kicker">06 — Cómo manejo el proceso</span>
+  <h2 class="section-title">No firmo con entusiasmo. Firmo con <em>evidencia</em></h2>
+  <p class="section-intro">Así opero el camino hacia una posible sociedad. Es menos romántico, sí. También mucho más sano.</p>
+  <div class="process">
+    <article class="step reveal">
+      <div class="step-n">Paso 01</div>
+      <h3>Ventana de observación pre-firma</h3>
+      <p>No firmo sin haber operado al menos algo real por seis meses. Proyecto, consultoría o iniciativa con fricción real. La química de una junta no cuenta como dato.</p>
+    </article>
+    <article class="step reveal d1">
+      <div class="step-n">Paso 02</div>
+      <h3>No-negociables escritos en frío</h3>
+      <p>Antes de la segunda reunión de negociación, mis no-negociables ya están en papel. Si la otra parte no los acepta, no hay segunda fase.</p>
+    </article>
+    <article class="step reveal d2">
+      <div class="step-n">Paso 03</div>
+      <h3>Pausas programadas, no reactivas</h3>
+      <p>Después de cada reunión importante, programo 72 horas de pausa. No para “bajar el enojo”, sino para evitar que la emoción tome una decisión estructural.</p>
+    </article>
+    <article class="step reveal d3">
+      <div class="step-n">Paso 04</div>
+      <h3>Segundo par de ojos externos</h3>
+      <p>Le presento la estructura a alguien sin interés en el resultado: mentor, amigo empresarial o asesor. Su trabajo es hacerme las preguntas incómodas que yo ya no me puedo hacer.</p>
+    </article>
+    <article class="step reveal d4">
+      <div class="step-n">Paso 05</div>
+      <h3>Fecha límite de decisión</h3>
+      <p>Si a los seis meses no hay acuerdo cerrado, algo no está cuadrando. No extiendo por tercera vez algo que ya debería ser claro.</p>
+    </article>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <span class="section-kicker">07 — Si después de leer esto sigues interesado</span>
+  <div class="cta-title">Entonces probablemente tenemos algo.</div>
+  <p class="cta-copy">No me mandes un pitch genérico. Mándame una respuesta concreta a estas dos preguntas para saber si vale la pena dar el siguiente paso.</p>
+  <div class="cta-grid">
+    <div class="cta-card">
+      <h3>1. ¿Cuál de las cuatro formas encaja mejor?</h3>
+      <p>Si dices “sociedad”, dime la razón específica por la que no cabe en una alianza, en un proyecto conjunto o en una asesoría.</p>
+    </div>
+    <div class="cta-card">
+      <h3>2. ¿Qué no está escrito aquí que deberíamos hablar?</h3>
+      <p>Este documento es un primer filtro, no una cobertura total. Lo que tú veas que falta probablemente es exactamente lo que vale la pena poner sobre la mesa.</p>
+    </div>
+  </div>
+  <p class="cta-copy">Si después de esa primera conversación los dos queremos seguir, armamos un proyecto pequeño para probar química operativa. Si funciona, hablamos de sociedad con base empírica, no con base en entusiasmo.</p>
+  <div class="signature">Rudy Laddaga · “La experiencia rica no es la que se siente más intensa. Es la que, al mirarla en diez años, te alegra haberla vivido.”</div>
+</section>
+
+<script>
+const bar = document.getElementById('prog');
+window.addEventListener('scroll', () => {
+  const max = document.body.scrollHeight - window.innerHeight;
+  bar.style.width = max > 0 ? (window.scrollY / max * 100) + '%' : '0%';
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      ro.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach((el) => ro.observe(el));
+
+const sections = ['hero','valores','formas','entrar','no-entrar','proceso'];
+const links = document.querySelectorAll('.nav a');
+const so = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      links.forEach((link) => link.classList.toggle('on', link.dataset.s === entry.target.id));
+    }
+  });
+}, { threshold: 0.35 });
+sections.forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) so.observe(el);
+});
+links.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    document.getElementById(link.dataset.s)?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

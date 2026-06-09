@@ -239,7 +239,7 @@ function render() {
 
     const card = document.createElement("section");
     card.className = "card exercise";
-    const diagram = (!fullCardImages.has(ex.image) && diagrams[ex.name]) ? `<div class="diagram"><p class="visual-label">Ilustración del movimiento</p><img src="${diagrams[ex.name]}" alt="Ilustración de ${ex.name}"></div>` : "";
+    const diagram = (!fullCardImages.has(ex.image) && !fullCardImages.has(ex.name) && diagrams[ex.name]) ? `<div class="diagram"><p class="visual-label">Ilustración del movimiento</p><img src="${diagrams[ex.name]}" alt="Ilustración de ${ex.name}"></div>` : "";
     card.innerHTML = `
       ${diagram}
       <img src="${images[ex.image] || diagrams[ex.name] || diagrams[ex.image] || ""}" alt="${ex.machine}" data-full-image data-title="${ex.name}">

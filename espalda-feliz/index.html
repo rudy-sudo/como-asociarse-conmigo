@@ -201,8 +201,9 @@ function adaptiveText(mood) {
 function getPreviousSession() {
   const currentDay = document.getElementById("day").value;
   const currentDate = document.getElementById("date").value;
+  const currentKey = currentDate + "-" + currentDay;
   const sessions = state.sessions || {};
-  const keys = Object.keys(sessions).filter(k => k.endsWith("-" + currentDay) && k < currentDate).sort().reverse();
+  const keys = Object.keys(sessions).filter(k => k.endsWith("-" + currentDay) && k <= currentDate && k !== currentKey).sort().reverse();
   return keys.length ? sessions[keys[0]] : null;
 }
 function adjustedSets(original, mood) {
@@ -256,8 +257,8 @@ function render() {
         </div>
         ${prev && prev.weights?.[ex.id] ? `<div class="prev-weight">Última vez: <strong>${prev.weights[ex.id]}</strong>${prev.quickNotes?.[ex.id] ? " · " + prev.quickNotes[ex.id] : ""}</div>` : ""}
         <div class="fields">
-          <div><label>Peso usado</label><input inputmode="decimal" placeholder="kg" value="${session.weights[ex.id] || ""}" data-weight="${ex.id}"></div>
-          <div><label>Nota rápida</label><input placeholder="ajuste asiento, pin, etc" value="${session.quickNotes?.[ex.id] || ""}" data-qnote="${ex.id}"></div>
+          <div><label>Peso usado</label><input inputmode="decimal" placeholder="${prev?.weights?.[ex.id] || 'kg'}" value="${session.weights[ex.id] || ""}" data-weight="${ex.id}"></div>
+          <div><label>Nota rápida</label><input placeholder="${prev?.quickNotes?.[ex.id] || 'ajuste asiento, pin, etc'}" value="${session.quickNotes?.[ex.id] || ""}" data-qnote="${ex.id}"></div>
         </div>
         <div class="setup-tip"><strong>⚙️ Colocarte:</strong> ${placementTip(ex.name)}</div>
       </div>`;

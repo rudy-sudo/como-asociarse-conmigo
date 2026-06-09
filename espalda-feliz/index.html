@@ -194,6 +194,13 @@ function adaptiveText(mood) {
   if (mood === "chueco") return {cls:"status warn", text:"🟠 Modo recalibración: baja 30% el peso, 2 series por ejercicio de pierna, prioriza Pallof, glúteo y control."};
   return {cls:"status danger", text:"🔴 Modo suave: solo movilidad, respiración 90/90, Pallof ligero y ejercicios que NO generen dolor. Si hay dolor irradiado, hormigueo o pérdida de fuerza, no entrenes fuerza hoy."};
 }
+function getPreviousSession() {
+  const currentDay = document.getElementById("day").value;
+  const currentDate = document.getElementById("date").value;
+  const sessions = state.sessions || {};
+  const keys = Object.keys(sessions).filter(k => k.endsWith("-" + currentDay) && k < currentDate).sort().reverse();
+  return keys.length ? sessions[keys[0]] : null;
+}
 function adjustedSets(original, mood) {
   if (mood === "molestia") return Math.min(original, 2);
   if (mood === "chueco") return Math.min(original, 2);
@@ -214,6 +221,7 @@ function render() {
   document.getElementById("routineTitle").textContent = routine.title;
   document.getElementById("routineSub").textContent = routine.subtitle;
 
+  const prev = getPreviousSession();
   const list = document.getElementById("exerciseList");
   list.innerHTML = "";
   let totalSeries = 0, doneSeries = 0;
@@ -243,7 +251,7 @@ function render() {
           ${Array.from({length: sets}, (_, i) => `<button data-ex="${ex.id}" data-serie="${i}" class="${done.includes(i) ? "done" : ""}">Serie ${i+1} ${done.includes(i) ? "✓" : ""}</button>`).join("")}
         </div>
         <div class="fields">
-          <input inputmode="decimal" placeholder="Peso usado" value="${session.weights[ex.id] || ""}" data-weight="${ex.id}">
+          <input inputmode="decimal" placeholder="Peso usado${prev && prev.weights?.[ex.id] ? " · anterior: " + prev.weights[ex.id] : ""}" value="${session.weights[ex.id] || ""}" data-weight="${ex.id}">
           <input placeholder="Nota rápida" value="${session.quickNotes?.[ex.id] || ""}" data-qnote="${ex.id}">
         </div>
         <details>
@@ -256,7 +264,9 @@ function render() {
 
   document.getElementById("bar").style.width = totalSeries ? Math.round(doneSeries/totalSeries*100)+"%" : "0%";
   document.getElementById("progressText").textContent = `${doneSeries}/${totalSeries} series completadas`;
-  document.getElementById("sessionNotes").value = session.notes || "";
+  const notesEl = document.getElementById("sessionNotes");
+  notesEl.value = session.notes || "";
+  if (prev && prev.notes) notesEl.placeholder = "Anterior: " + prev.notes;
   renderHistory();
   wireDynamic();
 }

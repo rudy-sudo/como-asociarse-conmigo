@@ -447,6 +447,14 @@ document.getElementById("lightbox").onclick = (event) => {
 };
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeLightbox();
+function normalizeSheetDate(raw) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw;
+  const n = Number(raw);
+  if (!n || n < 40000 || n > 60000) return raw;
+  const epoch = new Date(Date.UTC(1899, 11, 30));
+  const d = new Date(epoch.getTime() + n * 86400000);
+  return d.toISOString().slice(0, 10);
+}
 async function loadPreviousFromServer() {
   try {
     const day = document.getElementById("day").value;
@@ -456,8 +464,10 @@ async function loadPreviousFromServer() {
     if (!data.ok || !data.sessions.length) return;
     state.sessions = state.sessions || {};
     for (const s of data.sessions) {
-      if (s.fecha && s.dia) {
-        const k = s.fecha + "-" + s.dia;
+      if (s.dia) {
+        const fecha = normalizeSheetDate(s.fecha);
+        if (!fecha) continue;
+        const k = fecha + "-" + s.dia;
         const existing = state.sessions[k];
         const hasData = existing && (existing.weights && Object.keys(existing.weights).length || existing.quickNotes && Object.keys(existing.quickNotes).length);
         if (!hasData) {

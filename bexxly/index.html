@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bexxly · Playbook de Frecuencias | Rudy Laddaga</title>
+<meta name="description" content="Protocolos de frecuencias Bexxly para foco, juntas, sueño, modo talacha, networking y más. Playbook personal de Rudy Laddaga.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=Instrument+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #151210;
+  --paper: #f6f2eb;
+  --paper-2: #ede4d5;
+  --gold: #b08d4e;
+  --red: #8c3520;
+  --green: #3d6647;
+  --blue: #2c4a6e;
+  --purple: #5e3a7a;
+  --muted: #6b6057;
+  --line: rgba(21, 18, 16, 0.11);
+  --white: #fffdf8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background:
+    radial-gradient(circle at 10% 12%, rgba(176, 141, 78, 0.14), transparent 25rem),
+    radial-gradient(circle at 85% 0%, rgba(140, 53, 32, 0.16), transparent 26rem),
+    linear-gradient(180deg, rgba(255,255,255,0.52), rgba(255,255,255,0) 22rem),
+    var(--paper);
+  color: var(--ink);
+  font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+a { color: inherit; }
+.mono { font-family: "DM Mono", monospace; text-transform: uppercase; letter-spacing: 0.16em; }
+
+/* ── Topbar ── */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(15, 12, 11, 0.86);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.topbar-inner {
+  width: min(1180px, calc(100vw - 32px));
+  min-height: 68px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.brand { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
+.brand strong { color: var(--white); font-size: 14px; font-weight: 700; }
+.brand span { color: rgba(255,253,248,0.56); font-size: 10px; }
+.nav { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  text-decoration: none; color: rgba(255,253,248,0.82);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 999px;
+  padding: 9px 12px; font-size: 10px; white-space: nowrap;
+  background: rgba(255,255,255,0.06); transition: 0.22s ease;
+}
+.nav a:hover { color: var(--white); border-color: rgba(176,141,78,0.42); transform: translateY(-1px); }
+.nav a.active { color: var(--gold); border-color: rgba(176,141,78,0.5); }
+
+/* ── Hero ── */
+.hero {
+  padding: clamp(48px, 8vw, 100px) 16px clamp(34px, 5vw, 64px);
+  text-align: center;
+}
+.hero h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 300; font-size: clamp(52px, 10vw, 120px);
+  line-height: 0.88; letter-spacing: 0; margin-bottom: 20px;
+}
+.hero h1 em { color: var(--gold); font-style: italic; }
+.hero .rule { width: 100px; height: 3px; background: linear-gradient(90deg, var(--red), var(--gold), transparent); margin: 0 auto 24px; }
+.hero p { max-width: 52rem; margin: 0 auto; color: var(--muted); font-size: clamp(16px, 2vw, 20px); }
+.hero-link { display: inline-block; margin-top: 18px; color: var(--red); font-weight: 600; font-size: 13px; text-decoration: none; border-bottom: 1px solid var(--red); padding-bottom: 2px; }
+.hero-link:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ── Section ── */
+.section {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 auto; padding: 50px 0;
+}
+.section-head {
+  border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 18px;
+  display: flex; align-items: end; justify-content: space-between; gap: 28px;
+}
+.section-head h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(28px, 4.5vw, 52px); font-weight: 300; line-height: 0.98; letter-spacing: 0;
+}
+.section-head p { max-width: 37rem; color: var(--muted); }
+
+/* ── Playbook Cards ── */
+.playbooks {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px;
+}
+.pb {
+  background: var(--white); border: 1px solid var(--line); padding: 26px;
+  display: flex; flex-direction: column; gap: 14px; transition: 0.22s ease;
+  min-height: 260px;
+}
+.pb:hover { transform: translateY(-2px); border-color: rgba(176,141,78,0.5); box-shadow: 0 16px 50px rgba(21,18,16,0.08); }
+.pb-tag { font-size: 10px; font-weight: 700; }
+.pb h3 { font-family: "Fraunces", Georgia, serif; font-size: clamp(22px, 3vw, 32px); font-weight: 300; line-height: 1; letter-spacing: 0; }
+.pb-freq {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.pb-freq span {
+  background: rgba(176,141,78,0.12); color: var(--gold);
+  padding: 5px 10px; border-radius: 999px; font-size: 12px; font-weight: 600;
+}
+.pb-freq span.stack { background: rgba(61,102,71,0.12); color: var(--green); }
+.pb-freq span.purple { background: rgba(94,58,122,0.12); color: var(--purple); }
+.pb p { color: var(--muted); font-size: 14px; }
+.pb .tip {
+  margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line);
+  font-size: 12px; color: var(--muted); font-style: italic;
+}
+
+/* ── Color tags ── */
+.tag-focus .pb-tag { color: var(--red); }
+.tag-meeting .pb-tag { color: var(--blue); }
+.tag-sleep .pb-tag { color: var(--purple); }
+.tag-social .pb-tag { color: var(--green); }
+.tag-work .pb-tag { color: var(--ink); }
+.tag-pain .pb-tag { color: #a0522d; }
+.tag-personal .pb-tag { color: #7a6a3e; }
+
+/* ── Spotify band ── */
+.spotify-band {
+  background: #120f0d; color: var(--white); margin-top: 24px;
+}
+.spotify-inner {
+  width: min(1180px, calc(100vw - 32px)); margin: 0 auto; padding: 60px 0;
+}
+.spotify-inner h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(28px, 4.5vw, 48px); font-weight: 300; line-height: 0.98; margin-bottom: 28px;
+}
+.spotify-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px;
+}
+.sp-item {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  padding: 20px; border-radius: 8px;
+}
+.sp-item strong { display: block; font-size: 15px; margin-bottom: 6px; color: var(--gold); }
+.sp-item p { color: rgba(255,253,248,0.62); font-size: 13px; }
+
+/* ── Cheat Sheet ── */
+.cheat {
+  background: var(--white); border: 2px solid var(--gold); padding: clamp(24px, 4vw, 44px);
+  margin-top: 24px;
+}
+.cheat h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 40px); font-weight: 300; margin-bottom: 24px; text-align: center;
+}
+.cheat-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px;
+}
+.cheat-item {
+  padding: 16px 18px; border: 1px solid var(--line); border-radius: 8px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.cheat-item .q { font-weight: 700; font-size: 15px; }
+.cheat-item .a { color: var(--gold); font-weight: 600; font-size: 18px; font-family: "Fraunces", Georgia, serif; }
+
+/* ── Pro Tips ── */
+.tips {
+  margin-top: 24px; padding: clamp(24px, 4vw, 44px);
+  background: var(--white); border: 1px solid var(--line);
+}
+.tips h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(24px, 3.5vw, 40px); font-weight: 300; margin-bottom: 20px; }
+.tips ul { list-style: none; padding: 0; }
+.tips li { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--ink); }
+.tips li:last-child { border-bottom: none; }
+.tips li strong { color: var(--gold); }
+
+/* ── Avoid ── */
+.avoid {
+  margin-top: 24px; padding: clamp(24px, 4vw, 44px);
+  background: rgba(140, 53, 32, 0.06); border: 1px solid rgba(140, 53, 32, 0.15);
+}
+.avoid h2 { font-family: "Fraunces", Georgia, serif; font-size: clamp(24px, 3.5vw, 40px); font-weight: 300; margin-bottom: 20px; color: var(--red); }
+.avoid ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.avoid li { padding: 12px 16px; background: rgba(255,255,255,0.6); border-radius: 6px; font-size: 14px; }
+
+/* ── Footer ── */
+.foot {
+  width: min(1180px, calc(100vw - 32px)); margin: 0 auto; padding: 34px 0 46px;
+  display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 13px;
+}
+.foot-links { display: flex; gap: 14px; flex-wrap: wrap; }
+.foot-links a { color: var(--ink); text-decoration: none; font-weight: 600; }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .topbar-inner { align-items: flex-start; flex-direction: column; padding: 14px 0; min-height: 0; }
+  .section-head { display: block; }
+  .section-head p { margin-top: 10px; }
+  .playbooks { grid-template-columns: 1fr; }
+  .foot { display: block; }
+  .foot-links { margin-top: 12px; }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../" aria-label="Inicio">
+      <strong>Rudy Laddaga</strong>
+      <span class="mono">Sistema público de trabajo</span>
+    </a>
+    <nav class="nav mono" aria-label="Navegación principal">
+      <a href="../trabajar/">Trabajar</a>
+      <a href="../asociarse/">Asociarse</a>
+      <a href="../cv/">CV</a>
+      <a href="./" class="active">Bexxly</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="eyebrow mono" style="color:var(--gold);font-size:10px;margin-bottom:22px;">Playbook personal</div>
+    <h1>Bexxly · <em>Frecuencias</em></h1>
+    <div class="rule"></div>
+    <p>Protocolos de estimulación sonora con el Bexxly Harmonia — combinados con música ambiental para maximizar cada modo de trabajo y descanso.</p>
+    <a class="hero-link" href="https://bexxly.com/pages/frequency" target="_blank" rel="noreferrer">Biblioteca oficial de frecuencias →</a>
+  </section>
+
+  <!-- PLAYBOOKS -->
+  <section class="section" id="playbooks">
+    <div class="section-head">
+      <h2>Protocolos</h2>
+      <p>Cada modo tiene su frecuencia, su música y su timing. Elige según lo que necesitas ahora.</p>
+    </div>
+    <div class="playbooks">
+
+      <!-- Foco -->
+      <article class="pb tag-focus">
+        <div class="pb-tag mono">🧠 Modo foco</div>
+        <h3>Concentración & Flow</h3>
+        <div class="pb-freq">
+          <span>40 Hz Gamma Brain</span>
+          <span class="stack">Stack: 10 Hz Alpha → 40 Hz Gamma</span>
+        </div>
+        <p>Clarity cognitiva máxima del MIT. Estado de flow para trabajo profundo. 20–45 min por sesión.</p>
+        <div class="tip">💡 Stack avanzado: 10 min Alpha Peak para entrar suave, luego Gamma para flow total.</div>
+      </article>
+
+      <!-- Juntas: Decisión -->
+      <article class="pb tag-meeting">
+        <div class="pb-tag mono">🎯 Juntas — Decisión / Pitch</div>
+        <h3>Modo ejecución</h3>
+        <div class="pb-freq">
+          <span>852 Hz Intuition</span>
+          <span>→ 40 Hz Gamma</span>
+        </div>
+        <p>Para pitches, presentaciones y reuniones donde necesitas claridad letal y respuestas rápidas. 10–15 min Intuition de calentamiento, luego Gamma durante.</p>
+        <div class="tip">💡 Pon el Bexxly 15 min antes. Si es videollamada: solo Bexxly en audífonos, sin música.</div>
+      </article>
+
+      <!-- Juntas: Escucha -->
+      <article class="pb tag-meeting">
+        <div class="pb-tag mono">🧊 Juntas — Escucha / 1:1</div>
+        <h3>Modo empatía</h3>
+        <div class="pb-freq">
+          <span>10 Hz Alpha Peak</span>
+        </div>
+        <p>Estado calmado y empático. Para seguimientos, 1:1 y reuniones donde necesitas escuchar más que hablar.</p>
+        <div class="tip">💡 Lo-fi suave a volumen bajo te mantiene presente sin desconcentrarte.</div>
+      </article>
+
+      <!-- Juntas: Brainstorming -->
+      <article class="pb tag-meeting">
+        <div class="pb-tag mono">⚡ Juntas — Brainstorming</div>
+        <h3>Modo creativo</h3>
+        <div class="pb-freq">
+          <span class="purple">852 Hz Intuition</span>
+          <span>→ 40 Hz Gamma</span>
+        </div>
+        <p>Abre la mente con Intuition (20 min). Si pasan a ejecución/definición, cambias a Gamma.</p>
+        <div class="tip">💡 Lo-fi chill o vaporwave — energía creativa sin competencia.</div>
+      </article>
+
+      <!-- Juntas: Tensa -->
+      <article class="pb tag-meeting">
+        <div class="pb-tag mono">🛡️ Juntas — Negociación</div>
+        <h3>Modo ecuánime</h3>
+        <div class="pb-freq">
+          <span class="stack">639 Hz Heart Coherence</span>
+        </div>
+        <p>Coherencia corazón-cerebro para reuniones tensas o negociaciones difíciles. Te mantiene balanceado.</p>
+        <div class="tip">💡 Nada de música — necesitas toda tu atención en el otro.</div>
+      </article>
+
+      <!-- Dormir -->
+      <article class="pb tag-sleep">
+        <div class="pb-tag mono">😴 Dormir profundo</div>
+        <h3>Modo recuperación</h3>
+        <div class="pb-freq">
+          <span class="purple">4 Hz Theta Gate</span>
+          <span>→ 0.5 Hz Delta Deep</span>
+          <span>→ 1.2 Hz Deep Repair</span>
+        </div>
+        <p>Stack nocturno: Theta Gate 30–60 min antes de dormir (transición), luego Delta Deep o Deep Repair toda la noche.</p>
+        <div class="tip">💡 Spotify: brown noise, ambiental extremo. Sin ritmo. Volumen bajo.</div>
+      </article>
+
+      <!-- Social -->
+      <article class="pb tag-social">
+        <div class="pb-tag mono">🤝 Reuniones sociales</div>
+        <h3>Modo conexión</h3>
+        <div class="pb-freq">
+          <span class="stack">638 Hz Connection</span>
+          <span>→ 639 Hz Heart Coherence</span>
+        </div>
+        <p>Facilidad social y presencia genuina. 638 Hz 30 min antes para eventos donde quieres conectar de verdad. 639 Hz si buscas coherencia emocional profunda.</p>
+        <div class="tip">💡 Lo-fi suave o nada. Necesitas estar presente, no en tu cabeza.</div>
+      </article>
+
+      <!-- Talacha -->
+      <article class="pb tag-work">
+        <div class="pb-tag mono">🔨 Modo talacha</div>
+        <h3>Ejecución mecánica</h3>
+        <div class="pb-freq">
+          <span>40 Hz Gamma Brain</span>
+        </div>
+        <p>Gamma directo para tareas repetitivas que necesitan motor, no creatividad. Lo-fi con ritmo constante para mantener el gas.</p>
+        <div class="tip">💡 Si es >2hr: pausa 10 min con Alpha Peak cada 90 min para no quemar el sistema nervioso.</div>
+      </article>
+
+      <!-- Clases -->
+      <article class="pb tag-work">
+        <div class="pb-tag mono">🎤 Dar clases</div>
+        <h3>Modo profesor</h3>
+        <div class="pb-freq">
+          <span>40 Hz Gamma Brain</span>
+        </div>
+        <p>Para sesiones de Alquimistas o cualquier clase. Claridad, energía, presencia. Pausas de Alpha si la sesión pasa de 2hr.</p>
+        <div class="tip">💡 Bexxly cerca del escritorio, no en contacto directo con el cuerpo.</div>
+      </article>
+
+      <!-- Conversación difícil -->
+      <article class="pb tag-personal">
+        <div class="pb-tag mono">💔 Conversación difícil</div>
+        <h3>Modo firmeza compasiva</h3>
+        <div class="pb-freq">
+          <span>639 Hz Heart Coherence</span>
+          <span>→ 7.83 Hz Schumann</span>
+        </div>
+        <p>639 Hz antes de la llamada (coherencia corazón-cerebro). 7.83 Hz Schumann durante para mantener grounding y calma.</p>
+        <div class="tip">💡 Para despidos, feedback duro o cualquier conversación que requiere integridad con humanidad.</div>
+      </article>
+
+      <!-- Trabajo estratégico -->
+      <article class="pb tag-focus">
+        <div class="pb-tag mono">💡 Trabajo estratégico</div>
+        <h3>Modo visión</h3>
+        <div class="pb-freq">
+          <span>10 Hz Alpha Peak</span>
+          <span>→ 40 Hz Gamma</span>
+        </div>
+        <p>Stack de 40 min: Alpha para abrir el espacio creativo, Gamma para cerrar con claridad. Ideal para diseño de producto, estrategia, decisiones importantes.</p>
+        <div class="tip">💡 Empieza con lo-fi ambiental y sube a minimalista pianístico (Nils Frahm, Einaudi).</div>
+      </article>
+
+      <!-- Recuperación física -->
+      <article class="pb tag-pain">
+        <div class="pb-tag mono">🩹 Recuperación física</div>
+        <h3>Modo repair</h3>
+        <div class="pb-freq">
+          <span>100 Hz Muscle Recovery</span>
+          <span>→ 528 Hz DNA Repair</span>
+        </div>
+        <p>Post-ejercicio o dolor muscular: 100 Hz durante 30–45 min para fibras musculares. Agrega 528 Hz para regeneración celular profunda.</p>
+        <div class="tip">💡 Bexxly cerca de la zona afectada, no en contacto directo.</div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SPOTIFY COMBOS -->
+  <section class="spotify-band">
+    <div class="spotify-inner">
+      <h2>Capa Spotify</h2>
+      <p style="color:rgba(255,253,248,0.6);max-width:50rem;margin-bottom:28px;">La frecuencia es la base. La música es la capa que refuerza — o compite. Acá van los combos que funcionan.</p>
+      <div class="spotify-grid">
+        <div class="sp-item">
+          <strong>Foco / Flow</strong>
+          <p>Lo-fi chillhop, piano minimalista (Nils Frahm, Ludovico Einaudi sin voz), binaural beats 40 Hz, white/brown noise.</p>
+        </div>
+        <div class="sp-item">
+          <strong>Pitch / Decisión</strong>
+          <p>Silencio total es lo mejor. Si necesitas fondo: cinematic ambient suave (Hans Zimmer vibes) a volumen mínimo.</p>
+        </div>
+        <div class="sp-item">
+          <strong>Escucha / 1:1</strong>
+          <p>Lo-fi suave, ambiental. Volumen bajo. No debe competir con la conversación.</p>
+        </div>
+        <div class="sp-item">
+          <strong>Brainstorming</strong>
+          <p>Lo-fi chill o vaporwave. Energía creativa sin interrumpir el flujo de ideas.</p>
+        </div>
+        <div class="sp-item">
+          <strong>Negociación tensa</strong>
+          <p>Nada. O brown noise mínimo. Toda tu atención en el otro.</p>
+        </div>
+        <div class="sp-item">
+          <strong>Dormir</strong>
+          <p>Brown noise, space ambient extremo. Sin ritmo, sin letra. Brian Eno, Stars of the Lid.</p>
+        </div>
+        <div class="sp-item">
+          <strong>Talacha</strong>
+          <p>Lo-fi / chillhop con ritmo constante. Mantiene el motor sin que se apague.</p>
+        </div>
+        <div class="sp-item">
+          <strong>Social / Networking</strong>
+          <p>Lo-fi suave o nada. Necesitas estar presente en la conversación real.</p>
+        </div>
+        <div class="sp-item">
+          <strong>Recuperación física</strong>
+          <p>Ambient suave o 432 Hz harmonic tones. Nada que acelere el sistema nervioso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHEAT SHEET -->
+  <section class="section">
+    <div class="cheat">
+      <h2>Cheat Sheet</h2>
+      <div class="cheat-grid">
+        <div class="cheat-item">
+          <span class="q">Hay que hablar mucho</span>
+          <span class="a">→ 40 Hz Gamma</span>
+        </div>
+        <div class="cheat-item">
+          <span class="q">Hay que escuchar mucho</span>
+          <span class="a">→ 10 Hz Alpha</span>
+        </div>
+        <div class="cheat-item">
+          <span class="q">Hay que crear</span>
+          <span class="a">→ 852 Hz Intuition</span>
+        </div>
+        <div class="cheat-item">
+          <span class="q">Hay que sobrevivir 😅</span>
+          <span class="a">→ 639 Hz Heart</span>
+        </div>
+        <div class="cheat-item">
+          <span class="q">Hay que conectar</span>
+          <span class="a">→ 638 Hz Connection</span>
+        </div>
+        <div class="cheat-item">
+          <span class="q">Hay que descansar</span>
+          <span class="a">→ Delta / Theta</span>
+        </div>
+        <div class="cheat-item">
+          <span class="q">Hay que ejecutar (talacha)</span>
+          <span class="a">→ 40 Hz Gamma</span>
+        </div>
+        <div class="cheat-item">
+          <span class="q">Hay que sanar el cuerpo</span>
+          <span class="a">→ 100 Hz + 528 Hz</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section class="section">
+    <div class="tips">
+      <h2>Pro tips</h2>
+      <ul>
+        <li><strong>Colocación:</strong> Bexxly cerca del escritorio, no en contacto directo con el cuerpo. Las frecuencias se sienten más que se escuchan.</li>
+        <li><strong>Volumen:</strong> Spotify bajo-medio. Las frecuencias del Bexxly trabajan por debajo de la percepción consciente.</li>
+        <li><strong>Timing:</strong> Pon el Bexxly 10–15 min antes de cualquier sesión importante para que las frecuencias ya estén activas.</li>
+        <li><strong>Stack avanzado:</strong> Puedes combinar frecuencias. Empieza con una suave (Alpha/Schumann) y sube a la intensa (Gamma) una vez que el cuerpo responde.</li>
+        <li><strong>Talacha larga:</strong> Pausa de 10 min con Alpha Peak cada 90 min para no quemar el sistema nervioso.</li>
+        <li><strong>Videollamadas:</strong> Si necesitas oír reacciones del otro, solo Bexxly en audífonos, sin Spotify.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- AVOID -->
+  <section class="section">
+    <div class="avoid">
+      <h2>Evita esto</h2>
+      <ul>
+        <li>🎵 Música con letra fuerte — compite por atención consciente</li>
+        <li>🔊 Reggaetón / rock pesado — demasiada energía delta/beta, anula theta/gamma</li>
+        <li>⏰ Frecuencias Gamma más de 45 min seguidas sin pausa</li>
+        <li>📱 Bexxly como reproductor de Spotify — son cosas distintas, no las mezcles</li>
+        <li>🚫 Usar Delta/Theta de día — te van a dormir literal</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div>© 2026 Rudy Laddaga · <a href="https://bexxly.com" target="_blank" rel="noreferrer" style="color:var(--gold);text-decoration:none;">Bexxly</a></div>
+  <div class="foot-links">
+    <a href="../" style="font-weight:600;text-decoration:none;color:var(--ink);">← Hub</a>
+    <a href="https://gnius.club" target="_blank" rel="noreferrer">Gnius Club</a>
+    <a href="mailto:rudy@gnius.club">Contacto</a>
+  </div>
+</footer>
+
+</body>
+</html>

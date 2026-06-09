@@ -51,7 +51,11 @@ textarea{min-height:78px;resize:vertical}
 .series{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
 .series button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px 6px;font-weight:900}
 .series button.done{background:#0f7b4b;color:#fff;border-color:#0f7b4b}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.prev-weight{font-size:13px;color:var(--good);font-weight:700;margin-top:10px;padding:8px 10px;background:#eef7f1;border-radius:14px;border:1px solid #cfe8d8}
+.prev-weight strong{font-size:16px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.fields label{display:block;margin-bottom:3px}
+.setup-tip{font-size:13px;color:var(--muted);line-height:1.4;background:#f7f3eb;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-top:8px}
 .actions{position:fixed;bottom:0;left:0;right:0;background:#fffdf8e8;backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 14px env(safe-area-inset-bottom)}
 .actions-inner{max-width:540px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .primary,.secondary{border-radius:18px;padding:14px;border:0;font-weight:950}
@@ -250,14 +254,12 @@ function render() {
         <div class="series">
           ${Array.from({length: sets}, (_, i) => `<button data-ex="${ex.id}" data-serie="${i}" class="${done.includes(i) ? "done" : ""}">Serie ${i+1} ${done.includes(i) ? "✓" : ""}</button>`).join("")}
         </div>
+        ${prev && prev.weights?.[ex.id] ? `<div class="prev-weight">Última vez: <strong>${prev.weights[ex.id]}</strong>${prev.quickNotes?.[ex.id] ? " · " + prev.quickNotes[ex.id] : ""}</div>` : ""}
         <div class="fields">
-          <input inputmode="decimal" placeholder="Peso usado${prev && prev.weights?.[ex.id] ? " · anterior: " + prev.weights[ex.id] : ""}" value="${session.weights[ex.id] || ""}" data-weight="${ex.id}">
-          <input placeholder="Nota rápida" value="${session.quickNotes?.[ex.id] || ""}" data-qnote="${ex.id}">
+          <div><label>Peso usado</label><input inputmode="decimal" placeholder="kg" value="${session.weights[ex.id] || ""}" data-weight="${ex.id}"></div>
+          <div><label>Nota rápida</label><input placeholder="ajuste asiento, pin, etc" value="${session.quickNotes?.[ex.id] || ""}" data-qnote="${ex.id}"></div>
         </div>
-        <details>
-          <summary>Paso a paso para colocarte</summary>
-          <p class="mini">${placementTip(ex.name)}</p>
-        </details>
+        <div class="setup-tip"><strong>⚙️ Colocarte:</strong> ${placementTip(ex.name)}</div>
       </div>`;
     list.appendChild(card);
   });

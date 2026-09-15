@@ -1,0 +1,129 @@
+{
+  "updatedAt": "2026-09-15T08:30:30-06:00",
+  "editionLabel": "Edición inaugural · selección de casos",
+  "period": "Casos publicados entre 2024 y 2026. No es un corte semanal ni una muestra representativa.",
+  "methodology": "Cada caso se cuenta una sola vez. Las categorías son juicios editoriales sobre la evidencia citada, no una medición del impacto neto de la IA. Selección inicial intencional: no se puede interpretar su proporción como frecuencia en el mundo. No se rellenan cuotas. Opiniones, experimentos e incidentes se distinguen explícitamente.",
+  "items": [
+    {
+      "id": "rosie",
+      "title": "Rosie: IA y científicos diseñan una terapia personalizada",
+      "category": "positiva",
+      "kind": "Terapia experimental",
+      "summary": "UNSW documenta una vacuna de ARN mensajero diseñada a partir del tumor de Rosie, con apoyo de IA y equipos científicos. La perra recibió la primera dosis en diciembre de 2025.",
+      "why": "Es un caso concreto de colaboración entre IA, genómica y medicina veterinaria.",
+      "limitation": "Un caso experimental no demuestra una cura ni eficacia general. La fuente citada no permite afirmar que el cáncer desapareció.",
+      "date": "2026-05",
+      "url": "https://www.unsw.edu.au/content/dam/pdfs/science/ramaciotti-centre/2026-05-ramaciotti/2026-05-ramac_biennial_report_2024-2025.pdf#page=7",
+      "source": "UNSW · informe Ramaciotti 2024–2025"
+    },
+    {
+      "id": "alphagenome",
+      "title": "Un atlas de IA ayuda a investigar enfermedades genéticas",
+      "category": "positiva",
+      "kind": "Investigación y validación experimental",
+      "summary": "AlphaGenome Atlas reúne predicciones de nueve mil millones de variantes del ADN. DeepMind reporta que colaboradores identificaron una variante relacionada con enfermedad rara y validaron experimentalmente su efecto.",
+      "why": "Ayuda a priorizar qué variantes estudiar en el laboratorio.",
+      "limitation": "Predicción molecular no equivale a diagnóstico: el sistema no está aprobado ni validado para uso clínico. Fuente del desarrollador.",
+      "date": "2026-09-08",
+      "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+      "source": "Google DeepMind"
+    },
+    {
+      "id": "section-eval",
+      "title": "¿Un modelo nuevo es mejor? Hay que probarlo en tareas reales",
+      "category": "neutra",
+      "kind": "Guía editorial",
+      "summary": "Section propone evaluar modelos con tareas propias, comparaciones a ciegas y registros de costo, calidad y errores, en lugar de decidir solo por rankings.",
+      "why": "Ofrece contexto para interpretar anuncios sin confundir una demostración con resultados en tu trabajo.",
+      "limitation": "Es una propuesta metodológica de una empresa de formación, no un ensayo independiente de eficacia.",
+      "date": "2026-09-11",
+      "url": "https://www.sectionai.com/blog/how-to-evaluate-a-new-model-release-and-why-the-benchmarks-cant-do-it-for-you",
+      "source": "Section · Michael Domanic"
+    },
+    {
+      "id": "espionage",
+      "title": "Atacantes usaron Claude Code en una campaña de espionaje",
+      "category": "negativa",
+      "kind": "Incidente reportado",
+      "summary": "Anthropic informó que un grupo manipuló Claude Code para intentar infiltrarse en unas treinta organizaciones, con éxito en un pequeño número de casos.",
+      "why": "Muestra cómo herramientas útiles también pueden amplificar operaciones maliciosas.",
+      "limitation": "Atribución y alcance según el proveedor; su visibilidad es parcial. Hubo operadores humanos y errores del modelo: no fue una IA que decidió atacar sola.",
+      "date": "2025-11-13",
+      "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+      "source": "Anthropic · Threat Intelligence"
+    },
+    {
+      "id": "praim",
+      "title": "Mamografías: radiólogos con IA detectaron más cánceres",
+      "category": "positiva",
+      "kind": "Resultado observado",
+      "summary": "El estudio alemán PRAIM registró 6.7 cánceres detectados por cada mil mujeres con apoyo de IA, frente a 5.7 sin él, en doce centros.",
+      "why": "Una mejora relativa del 17.6% en detección dentro de la práctica estudiada.",
+      "limitation": "Estudio observacional, no aleatorizado. Más detección no demuestra menor mortalidad ni descarta sobrediagnóstico. Hay participación de la empresa desarrolladora.",
+      "date": "2025-01-07",
+      "url": "https://www.nature.com/articles/s41591-024-03408-6",
+      "source": "Nature Medicine · estudio PRAIM"
+    },
+    {
+      "id": "bci-als",
+      "title": "Un hombre con ELA recupera una vía para conversar",
+      "category": "positiva",
+      "kind": "Experimento clínico",
+      "summary": "UC Davis combinó sensores cerebrales y decodificación computacional para convertir intentos de habla en palabras. Un participante con ELA utilizó el sistema durante más de 248 horas de conversación.",
+      "why": "Un beneficio observado de comunicación, con precisión reportada cercana al 97.5% en el texto decodificado.",
+      "limitation": "Un participante con implantes. No cura la ELA ni es una solución disponible para todo el mundo.",
+      "date": "2024-08-14",
+      "url": "https://www.ucdavis.edu/news/brain-computer-interface-allows-man-als-speak",
+      "source": "UC Davis"
+    },
+    {
+      "id": "ai-index",
+      "title": "Mirar la IA con datos, no solo con titulares",
+      "category": "neutra",
+      "kind": "Informe de contexto",
+      "summary": "El AI Index 2026 de Stanford reúne indicadores de capacidades, inversión, ciencia, medicina y efectos sociales.",
+      "why": "Permite poner avances y preocupaciones en una perspectiva más amplia.",
+      "limitation": "Combina fuentes y períodos diferentes: no produce un saldo único de bienestar ni prueba causalidad por sí solo.",
+      "date": "2026-04-13",
+      "url": "https://hai.stanford.edu/news/inside-the-ai-index-12-takeaways-from-the-2026-report",
+      "source": "Stanford HAI"
+    },
+    {
+      "id": "ai-doc",
+      "title": "El documental que inspira esta conversación",
+      "category": "neutra",
+      "kind": "Cultura y perspectiva editorial",
+      "summary": "The AI Doc: Or How I Became an Apocaloptimist, de Daniel Roher y Charlie Tyrell, explora promesas y riesgos de la IA desde la mirada de un futuro padre.",
+      "why": "Invita a sostener esperanza y preocupación sin renunciar a preguntar.",
+      "limitation": "Una obra documental no es evidencia experimental ni un pronóstico validado. Este sitio es independiente y no está afiliado a la película.",
+      "date": "2026-03-27",
+      "url": "https://www.focusfeatures.com/the-ai-doc-or-how-i-became-an-apocaloptimist",
+      "source": "Focus Features · estreno en EE. UU."
+    },
+    {
+      "id": "biden-voice",
+      "title": "Una voz clonada difundió información electoral falsa",
+      "category": "negativa",
+      "kind": "Incidente documentado",
+      "summary": "Llamadas automatizadas imitaron con IA la voz de Joe Biden para desinformar a votantes de New Hampshire en enero de 2024. La FCC anunció una multa administrativa en septiembre.",
+      "why": "La suplantación de voz puede utilizarse para engañar e interferir con la participación cívica.",
+      "limitation": "La fuente documenta el engaño, no su efecto en el resultado electoral. Una sanción administrativa no es una condena penal.",
+      "date": "2024-09-26",
+      "url": "https://docs.fcc.gov/public/attachments/DOC-405811A1.pdf",
+      "source": "FCC"
+    },
+    {
+      "id": "donotpay",
+      "title": "La promesa de un “abogado robot” sin pruebas suficientes",
+      "category": "negativa",
+      "kind": "Actuación regulatoria",
+      "summary": "La FTC finalizó una orden contra DoNotPay por promocionar su chatbot como sustituto de un abogado sin evidencia suficiente. El acuerdo contempla reparación económica y límites a esas afirmaciones.",
+      "why": "Las promesas de equivalencia profesional pueden inducir a confiar más de lo que la evidencia permite.",
+      "limitation": "Es un caso de publicidad y validación insuficiente; no prueba que toda asistencia jurídica con IA sea inútil.",
+      "date": "2025-02-11",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2025/02/ftc-finalizes-order-donotpay-prohibits-deceptive-ai-lawyer-claims-imposes-monetary-relief-requires",
+      "source": "Federal Trade Commission"
+    }
+  ],
+  "editorial": "Hay beneficios concretos en comunicación y detección, avances experimentales que merecen seguimiento y usos engañosos que exigen atención. No se cancelan entre sí: la pregunta es cómo ampliar los beneficios y reducir los daños."
+}
